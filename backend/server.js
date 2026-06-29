@@ -13,6 +13,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date() });
+});
 app.use('/api/tasks', taskRoutes);
 
 // Database Connection
